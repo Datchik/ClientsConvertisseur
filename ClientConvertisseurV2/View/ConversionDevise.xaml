@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="ClientConvertisseurV2.View.ConversionDevise"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClientConvertisseurV2.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding Cdevise, Source={StaticResource Locator}}">
+
+
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Margin="87,266,-215.333,-275" TextAlignment="Center">
+            <Run Text="Montant en"/>
+            <Run Text=" devises"/>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="Devise" VerticalAlignment="Top" Width="185" Margin="87,177,-221.333,-186" TextAlignment="Center" RenderTransformOrigin="0.459,-4.345"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Width="185" Margin="87,405,-250.667,-414" RenderTransformOrigin="0.452,0.6" TextAlignment="Center">
+            <Run Text="Montant en "/>
+            <Run Text="Euros"/>
+        </TextBlock>
+        <ComboBox 
+            x:Name="cbxDevise" 
+            HorizontalAlignment="Left" 
+            Height="46" 
+            VerticalAlignment="Top"
+            Width="191"
+            Margin="84,211,-211,-225"
+            ItemsSource="{Binding ComboBoxDevises}" 
+            SelectedValuePath="Id"
+            DisplayMemberPath="DeviseName"
+            SelectedItem="{Binding ComboBoxDeviseItem, Mode=TwoWay}"/>
+        <TextBox x:Name="tbxMontantDevise" HorizontalAlignment="Left" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Margin="74,295,-215,-309" Text="{Binding MontantEnDevise, Mode=TwoWay}"/>
+        <TextBox x:Name="tbxMontantEuro" HorizontalAlignment="Left" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Margin="74,430,-215,-444" Text="{Binding MontantEuros, Mode=OneWay}"/>
+        <Button Content="Convertir" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="194" Margin="83,355,-228,-369" RenderTransformOrigin="1.262,9.312" Command="{Binding BtnSetConversion}"/>
+    </RelativePanel>
+</Page>

@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="ClientConvertisseurV2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClientConvertisseurV2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="Montant en Euros" VerticalAlignment="Top" Width="185" Margin="87,177,-215.333,-186" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="Devise" VerticalAlignment="Top" Width="185" Margin="87,266,-221.333,-275" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Montant en devises" Width="185" Margin="87,405,-250.667,-414" RenderTransformOrigin="0.452,0.6" TextAlignment="Center"/>
+        <ComboBox 
+            x:Name="cbxDevise" 
+            HorizontalAlignment="Left" 
+            Height="46" 
+            VerticalAlignment="Top"
+            Width="191"
+            Margin="84,295,-211,-309"
+            ItemsSource="{Binding ComboBoxDevises}" 
+            SelectedValuePath="Id"
+            DisplayMemberPath="DeviseName"
+            SelectedItem="{Binding ComboBoxDeviseItem, Mode=TwoWay}"/>
+        <TextBox x:Name="tbxMontantDevise" HorizontalAlignment="Left" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Margin="74,441,-215,-455" Text="{Binding MontantEnDevise, Mode=OneWay}"/>
+        <TextBox x:Name="tbxMontantEuro" HorizontalAlignment="Left" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Margin="74,211,-215,-225" Text="{Binding MontantEuros, Mode=TwoWay}"/>
+        <Button Content="Convertir" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="194" Margin="83,355,-228,-369" RenderTransformOrigin="1.262,9.312" Command="{Binding BtnSetConversion}"/>
+    </RelativePanel>
+</Page>
